@@ -1,0 +1,109 @@
+1. Installation
+Commands for installing Git on different operating systems.
+
+Install on Linux:
+sudo apt install git -y
+Install on Windows:
+Download from https://git-scm.com/download/win
+
+2. Configuration
+Set up user information for commits.
+
+Set global user name:
+git config --global user.name "Your Name"
+Set global user email:
+git config --global user.email "your@email.com"
+
+3. Initializing a Repository
+Create and initialize a local Git repository.
+
+Create directory and initialize:
+mkdir myproject && cd myproject
+git init
+
+4. Tracking and Committing Files
+Add files to the repository and commit changes.
+
+Create a file and check status:
+echo "Hello Git" > readme.txt
+git status
+Stage a file:
+git add readme.txt
+Commit changes:
+git commit -m "First commit: added readme"
+Stage all changes:
+git add .
+Show differences:
+git diff
+
+5. Viewing History
+Inspect commit logs.
+
+View commit history:
+git log
+View concise history:
+git log --oneline
+
+6. Branching
+Create and manage branches.
+
+Create and switch to a new branch:
+git checkout -b feature1
+Switch branches:
+git checkout main
+git checkout branch1
+
+7. Merging
+Integrate changes from one branch to another.
+
+Merge a branch:
+git merge feature1
+git merge branch2
+
+8. Handling Conflicts
+Example workflow for creating and resolving conflicts.
+
+Create conflict on branch1:
+echo "Hello from branch1" > conflict.txt
+git add .
+git commit -m "branch1 change"
+Create conflict on branch2:
+git checkout -b branch2
+echo "Hello from branch2" > conflict.txt
+git add .
+git commit -m "branch2 change"
+Attempt merge and resolve:
+git checkout branch1
+git merge branch2
+(Resolve conflicts manually in the file, then stage and commit.)
+
+9. Remote Repositories
+Work with remote repositories (e.g., GitHub).
+
+Add a remote:
+git remote add origin https://github.com/user/myproject.git
+Rename branch to main and push:
+git branch -M main
+git push -u origin main
+Clone a repository:
+git clone https://github.com/user/myproject.git
+Pull updates:
+git pull origin main
+
+10. Advanced Topics
+Additional commands for ignoring files, undoing changes, stashing, and tagging.
+
+.gitignore (check ignored files):
+git status  (Files listed in .gitignore won't show as untracked.)
+Undo changes:
+git checkout -- readme.txt  (Discard changes in working directory.)
+git reset --hard HEAD~1  (Reset to previous commit.)
+git revert <commit-hash>  (Revert a specific commit.)
+Stash changes:
+echo "temp change" >> temp.txt
+git stash
+git stash list
+git stash pop
+Tags:
+git tag v1.0
+git push origin v1.0
